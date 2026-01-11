@@ -1,0 +1,393 @@
+/* ============================================
+   TemplateMo 3D Glassmorphism Dashboard - TEMA AZUL
+   Versão Customizada com tons de azul escuro
+============================================ */
+
+/* ============================================
+   CSS CUSTOM PROPERTIES - TEMA AZUL
+============================================ */
+:root {
+    /* Primary Colors - Azul & Azul Claro */
+    --emerald: #0369a1;
+    --emerald-light: #0ea5e9;
+    --gold: #60a5fa;
+    --gold-light: #93c5fd;
+    --amber: #1e40af;
+    --cream: #dbeafe;
+    
+    /* Accent Colors */
+    --coral: #3b82f6;
+    --slate: #475569;
+    
+    /* Glass Colors */
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(59, 130, 246, 0.2);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    --glass-hover: rgba(30, 58, 138, 0.4);
+    
+    /* Background - Deep Blue */
+    --bg-dark: #020617;
+    --bg-gradient-1: #0f172a;
+    --bg-gradient-2: #1e293b;
+    --bg-gradient-3: #1e3a8a;
+    
+    /* Text */
+    --text-primary: #f5f5f4;
+    --text-secondary: rgba(245, 245, 244, 0.7);
+    --text-muted: rgba(245, 245, 244, 0.4);
+    
+    /* Status Colors */
+    --success: #0ea5e9;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --info: #0ea5e9;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+    --glass-bg: rgba(219, 234, 254, 0.6);
+    --glass-border: rgba(59, 130, 246, 0.2);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    --glass-hover: rgba(147, 197, 253, 0.5);
+    
+    --bg-dark: #f0f9ff;
+    --bg-gradient-1: #e0f2fe;
+    --bg-gradient-2: #dbeafe;
+    --bg-gradient-3: #bfdbfe;
+    
+    --text-primary: #0c4a6e;
+    --text-secondary: rgba(12, 74, 110, 0.7);
+    --text-muted: rgba(12, 74, 110, 0.5);
+}
+
+/* ============================================
+   ANIMATED BACKGROUND - TEMA AZUL
+============================================ */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%);
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 30% at 50% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+}
+
+/* Floating Orbs - Azul */
+.orb-1 {
+    background: #0ea5e9;
+}
+
+.orb-2 {
+    background: #3b82f6;
+}
+
+.orb-3 {
+    background: #60a5fa;
+}
+
+/* ============================================
+   LOGO E COMPONENTES PRINCIPAIS
+============================================ */
+.logo {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+}
+
+.logo-text {
+    background: linear-gradient(135deg, #0ea5e9, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   NAVIGATION
+============================================ */
+.nav-badge {
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    background: var(--glass-hover);
+}
+
+/* ============================================
+   BUTTONS E INPUTS
+============================================ */
+.search-input:focus {
+    border-color: var(--emerald-light);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+}
+
+.nav-btn:hover {
+    border-color: var(--emerald-light);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 32px rgba(14, 165, 233, 0.4);
+}
+
+/* ============================================
+   STAT CARDS
+============================================ */
+.stat-icon.cyan {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0.05));
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
+}
+
+.stat-icon.magenta {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(96, 165, 250, 0.05));
+    box-shadow: 0 8px 32px rgba(96, 165, 250, 0.2);
+}
+
+.stat-icon.purple {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+}
+
+.stat-icon.success {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0.05));
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
+}
+
+/* ============================================
+   CHARTS
+============================================ */
+.chart-bar.bar-emerald {
+    background: linear-gradient(180deg, #38bdf8, #0284c7);
+}
+
+.chart-bar.bar-gold {
+    background: linear-gradient(180deg, #60a5fa, #3b82f6);
+}
+
+.chart-bar.bar-coral {
+    background: linear-gradient(180deg, #93c5fd, #60a5fa);
+}
+
+.chart-bar.bar-teal {
+    background: linear-gradient(180deg, #7dd3fc, #0ea5e9);
+}
+
+.chart-bar.bar-amber {
+    background: linear-gradient(180deg, #60a5fa, #2563eb);
+}
+
+.chart-bar.bar-emerald:hover {
+    box-shadow: 0 0 16px rgba(14, 165, 233, 0.4);
+}
+
+.chart-bar.bar-gold:hover {
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+}
+
+.chart-bar.bar-coral:hover {
+    box-shadow: 0 0 16px rgba(96, 165, 250, 0.4);
+}
+
+.chart-bar.bar-teal:hover {
+    box-shadow: 0 0 16px rgba(14, 165, 233, 0.4);
+}
+
+.chart-bar.bar-amber:hover {
+    box-shadow: 0 0 16px rgba(37, 99, 235, 0.4);
+}
+
+/* Scrollbar customizado - Azul */
+.table-wrapper::-webkit-scrollbar-thumb,
+.chart-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #0369a1, #0ea5e9);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover,
+.chart-wrapper::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #0ea5e9, #60a5fa);
+}
+
+/* ============================================
+   PROGRESS BARS - AZUL
+============================================ */
+.progress-fill.cyan {
+    background: linear-gradient(90deg, #0ea5e9, #0369a1);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+
+.progress-fill.magenta {
+    background: linear-gradient(90deg, #60a5fa, #3b82f6);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+.progress-fill.purple {
+    background: linear-gradient(90deg, #3b82f6, #1e40af);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* ============================================
+   CALENDAR
+============================================ */
+.calendar-day.today {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+/* ============================================
+   DONUT CHART - AZUL
+============================================ */
+.legend-color.cyan { 
+    background: #0ea5e9; 
+}
+
+.legend-color.magenta { 
+    background: #60a5fa; 
+}
+
+.legend-color.purple { 
+    background: #3b82f6; 
+}
+
+/* ============================================
+   LOGIN PAGE
+============================================ */
+.login-logo {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+    box-shadow: 0 12px 40px rgba(14, 165, 233, 0.3);
+}
+
+.form-input:focus {
+    border-color: var(--emerald-light);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+}
+
+.forgot-link {
+    color: var(--emerald-light);
+}
+
+.forgot-link:hover {
+    color: var(--gold);
+}
+
+/* ============================================
+   SETTINGS PAGE
+============================================ */
+.toggle-switch input:checked + .toggle-slider {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+    border-color: var(--emerald);
+}
+
+.form-group-settings input:focus,
+.form-group-settings textarea:focus {
+    border-color: var(--emerald-light);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+}
+
+/* ============================================
+   MOBILE MENU
+============================================ */
+.mobile-menu-toggle {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+}
+
+/* ============================================
+   FOOTER LINKS
+============================================ */
+.site-footer a {
+    color: var(--emerald-light);
+}
+
+.site-footer a:hover {
+    color: var(--gold);
+}
+
+/* ============================================
+   GLASS CARD HOVER EFFECT
+============================================ */
+.glass-card:hover {
+    box-shadow: 
+        0 25px 50px -12px var(--glass-shadow),
+        0 0 40px rgba(14, 165, 233, 0.1);
+}
+
+/* ============================================
+   BREADCRUMB
+============================================ */
+.page-breadcrumb a:hover {
+    color: var(--emerald-light);
+}
+
+/* ============================================
+   CARD BUTTONS
+============================================ */
+.card-btn:hover,
+.card-btn.active {
+    border-color: var(--emerald-light);
+}
+
+/* ============================================
+   SELECT DROPDOWN AZUL
+============================================ */
+.settings-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230ea5e9' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+}
+
+.settings-select:focus {
+    border-color: var(--emerald-light);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
+}
+
+/* ============================================
+   PROFILE AVATAR
+============================================ */
+.profile-avatar-large {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+}
+
+.profile-avatar-edit:hover {
+    border-color: var(--emerald-light);
+}
+
+/* ============================================
+   USER AVATAR
+============================================ */
+.user-avatar {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+}
+
+/* ============================================
+   NOTIFICATION DOT
+============================================ */
+.notification-dot {
+    background: #3b82f6;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+.calendar-day.has-event::after {
+    background: #60a5fa;
+}
+
+/* ============================================
+   THEME TOGGLE HOVER
+============================================ */
+.theme-toggle-float:hover {
+    border-color: var(--emerald-light);
+}
