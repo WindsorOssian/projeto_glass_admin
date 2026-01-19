@@ -3,8 +3,8 @@
 // DIR informa aonde você está e quantos níveis você quer voltar
 include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
-$menuAtivo  = 'desempenho';
-$tituloPagina = 'Desempenho';
+$menuAtivo  = 'matematica';
+$tituloPagina = 'Matemática';
 
 ?>
 
@@ -32,26 +32,15 @@ $tituloPagina = 'Desempenho';
 
         <!-- Main Content -->
         <main class="main-content">
-
-            <!-- TOPO -->
+            <!-- Main Content -->
             <?php include_once PATH . 'Template/_includes/_topo.php'; ?>
 
             <!-- Mobile Menu Toggle -->
             <?php include_once PATH . 'Template/_includes/_botao_menu.php'; ?>
 
-
-            <!-- Conteúdo da página -->
-
         </main>
 
     </div>
-
-
-
-
-
-
-
 
 
     <!-- Footer -->
@@ -59,6 +48,8 @@ $tituloPagina = 'Desempenho';
     <!-- Scripts -->
     <?php include_once PATH . 'Template/_includes/_scripts.php'; ?>
 
+
+    <!-- TemplateMo 607 Glass Admin -->
 </body>
 
 </html>

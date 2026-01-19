@@ -2,7 +2,7 @@
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <div class="logo">ID</div>
-        <span class="logo-text">Nome do Aluno</span>
+        <span class="logo-text">Nome do Administrador</span>
     </div>
     <!-- Parte de cima do menu -->
     <ul class="nav-menu">
@@ -10,7 +10,7 @@
             <span class="nav-section-title">Meu Menu</span>
             <ul>
                 <li class="nav-item">
-                    <a href="../../View/aluno/inicial_aluno.php" class="nav-link <?= ($menuAtivo === 'desempenho') ? 'active' : '' ?>">
+                    <a href="../../View/adm/inicial_adm.php" class="nav-link <?= ($menuAtivo === 'principal') ? 'active' : '' ?>">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <!-- São os quadrados do icone -->
                             <rect x="3" y="3" width="7" height="7" rx="1" />
@@ -18,54 +18,19 @@
                             <rect x="3" y="14" width="7" height="7" rx="1" />
                             <rect x="14" y="14" width="7" height="7" rx="1" />
                         </svg>
-                        Desempenho
+                        Principal
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../../View/aluno/matematica.php" class="nav-link <?= ($menuAtivo === 'matematica') ? 'active' : '' ?>">
+                    <a href="../../View/adm/disciplinas.php" class="nav-link <?= ($menuAtivo === 'disciplinas') ? 'active' : '' ?>">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <!-- São os quadrados do icone -->
                             <path d="M12 2L2 7l10 5 10-5-10-5z" />
                             <path d="M2 17l10 5 10-5" />
                             <path d="M2 12l10 5 10-5" />
                         </svg>
-                        Matemática
-                        <!-- <span class="nav-badge">Novo</span> Aparece um balão escrito Novo na frente da aba-->
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="analytics.html" class="nav-link">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <!-- São os quadrados do icone -->
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            <path d="M2 17l10 5 10-5" />
-                            <path d="M2 12l10 5 10-5" />
-                        </svg>
-                        Informática
-                        <!-- <span class="nav-badge">Novo</span> Aparece um balão escrito Novo na frente da aba-->
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="analytics.html" class="nav-link">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <!-- São os quadrados do icone -->
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            <path d="M2 17l10 5 10-5" />
-                            <path d="M2 12l10 5 10-5" />
-                        </svg>
-                        Legislação Municipal
-                        <!-- <span class="nav-badge">Novo</span> Aparece um balão escrito Novo na frente da aba-->
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="analytics.html" class="nav-link">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <!-- São os quadrados do icone -->
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            <path d="M2 17l10 5 10-5" />
-                            <path d="M2 12l10 5 10-5" />
-                        </svg>
-                        Legislação Geral
+                        Disciplinas
+                        <!-- Aqui o administrador pode cadastrar os seus conteúdos, disciplinas, matérias, questões, etc. -->
                         <!-- <span class="nav-badge">Novo</span> Aparece um balão escrito Novo na frente da aba-->
                     </a>
                 </li>
@@ -78,6 +43,7 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                         </svg>
                         Usuários
+                        <!-- Aqui o administrador verifica todos os usuarios cadastrados, historico online, altera as senhas deles gerando link token etc -->
                     </a>
                 </li>
                 <li class="nav-item">
@@ -87,6 +53,7 @@
                             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
                         </svg>
                         Configurações
+                        <!-- Aqui o adm muda sua senha, seu nome, seu email, etc coisas sobre o perfil do adm -->
                     </a>
                 </li>
             </ul>
@@ -96,7 +63,7 @@
             <span class="nav-section-title">Conta</span>
             <ul>
                 <li class="nav-item">
-                    <a href="../../View/acesso/login_aluno.php" class="nav-link">
+                    <a href="../../View/acesso/login_admin.php" class="nav-link">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <!-- São os quadrados do icone -->
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
