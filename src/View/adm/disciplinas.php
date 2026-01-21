@@ -2,6 +2,7 @@
 
 // DIR informa aonde você está e quantos níveis você quer voltar
 include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+include_once dirname(__DIR__, 3) . '/src/Template/_includes/icon/icones.php';
 
 $menuAtivo  = 'disciplinas';
 $tituloPagina = 'Disciplinas';
@@ -44,24 +45,27 @@ $tituloPagina = 'Disciplinas';
             <!-- Stats Cards -->
             <section class="stats-grid">
                 <div class="glass-card glass-card-3d stat-card">
-                    <div class="stat-card-inner">
-                        <div class="stat-info">
-                            <h3>Cadastrar conteúdos/temas</h3>
-                            <div class="stat-value">$84,254</div>
-                            <span class="stat-change positive">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                                </svg>
-                                +12.5%
-                            </span>
+                    <a href="cadastro_disciplinas.php">
+                        <div class="stat-card-inner">
+                            <div class="stat-info">
+                                <h3>Cadastrar conteúdos/temas</h3>
+                                <div class="stat-value">100000</div>
+                                <span class="stat-change positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                    </svg>
+                                    +12.5%
+                                </span>
+                            </div>
+                            <div class="stat-icon cyan">
+                            
+                                <div class="stat-icon cyan">
+                                    <?php echo get_icon('book-open'); ?>
+                                </div>
+                                
+                            </div>
                         </div>
-                        <div class="stat-icon cyan">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--emerald-light)" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23" />
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                            </svg>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="glass-card glass-card-3d stat-card">

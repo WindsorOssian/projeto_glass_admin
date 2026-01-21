@@ -391,3 +391,104 @@
 .theme-toggle-float:hover {
     border-color: var(--emerald-light);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   TOASTR CUSTOM - TEMA AZUL GLASS
+============================================ */
+
+#toast-container > div {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    color: var(--text-primary);
+    border-radius: 12px;
+    padding: 16px 20px;
+    opacity: 1;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* SUCESSO - AZUL */
+.toast-success {
+    background: linear-gradient(
+        135deg,
+        rgba(14, 165, 233, 0.25),
+        rgba(3, 105, 161, 0.25)
+    );
+    border-left: 4px solid var(--success);
+}
+
+/* WARNING */
+.toast-warning {
+    background: linear-gradient(
+        135deg,
+        rgba(245, 158, 11, 0.2),
+        rgba(180, 83, 9, 0.2)
+    );
+    border-left: 4px solid var(--warning);
+}
+
+/* ERROR */
+.toast-error {
+    background: linear-gradient(
+        135deg,
+        rgba(220, 38, 38, 0.2),
+        rgba(153, 27, 27, 0.2)
+    );
+    border-left: 4px solid var(--danger);
+}
+
+/* INFO */
+.toast-info {
+    background: linear-gradient(
+        135deg,
+        rgba(96, 165, 250, 0.25),
+        rgba(59, 130, 246, 0.25)
+    );
+    border-left: 4px solid var(--info);
+}
+
+.toast-close-button {
+    color: var(--text-secondary);
+}
+
+.toast-close-button:hover {
+    color: var(--text-primary);
+}
+
+#toast-container {
+    z-index: 99999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

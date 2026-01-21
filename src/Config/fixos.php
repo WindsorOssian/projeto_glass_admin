@@ -6,3 +6,18 @@ define('PATH', $_SERVER['DOCUMENT_ROOT'] . '/projeto_glass_admin/src/');
 // Porque quando for publicado em outro servidor e for precisar mudar o link ou dominio
 // Basta mudar aqui e não em todos os arquivos
 // Exemplo servidor: define('PATH', $_SERVER['DOCUMENT_ROOT'] . '/pasta/servidor/');
+
+
+// Cadastrar Disciplina
+
+const CADASTRAR_DISCIPLINA = "CadastrarDisciplina";
+const ALTERAR_DISCIPLINA = "AlterarDisciplina";
+const INATIVAR_DISCIPLINA = "ExcluirDisciplina";
+
+
+
+
+
+
+
+

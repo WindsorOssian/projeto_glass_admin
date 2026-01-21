@@ -27,12 +27,56 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
         <!-- Sidebar -->
         <?php include_once PATH . 'Template/_includes/_menu.php'; ?>
 
-        <!-- Main Content -->
-        <?php include_once PATH . 'Template/_includes/_topo.php'; ?>
 
-        <!-- Mobile Menu Toggle -->
-        <?php include_once PATH . 'Template/_includes/_botao_menu.php'; ?>
+        <main class="main-content">
+            <!-- Main Content -->
+            <?php include_once PATH . 'Template/_includes/_topo.php'; ?>
 
+            <!-- Mobile Menu Toggle -->
+            <?php include_once PATH . 'Template/_includes/_botao_menu.php'; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
     </div>
 
 
