@@ -37,6 +37,27 @@ class DisciplinaMODEL extends Conexao
 
     }
 
+    public function AlterarDisciplinaMODEL(DisciplinaVO $vo)
+    {
+
+        $sql = $this->conexao->prepare(DISCIPLINA_SQL::ALTERAR_DISCIPLINA());
+        $i = 1;
+        $sql->bindValue($i++, $vo->getNomeDisciplina());
+        $sql->bindValue($i++, $vo->getDescricao());
+        $sql->bindValue($i++, $vo->getStatus());
+        $sql->bindValue($i++, $vo->getId());
+        
+        try{
+            $sql->execute();
+            return 1;
+        } catch (Exception $ex){
+            $vo->setErroTecnico($ex->getMessage());
+            parent::GravarErroLog($vo);
+            return -1;
+        }
+
+    }
+
 
 
 

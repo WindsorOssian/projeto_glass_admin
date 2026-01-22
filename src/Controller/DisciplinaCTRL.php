@@ -18,7 +18,7 @@ class DisciplinaCTRL
 
     public function CadastrarDisciplinaCTRL(DisciplinaVO $vo)
     {
-        if(empty($vo->getNomeDisciplina()))
+        if(trim($vo->getNomeDisciplina()) === '')
             return 0;
 
         $vo->setErroTecnico(CADASTRAR_DISCIPLINA);
@@ -27,6 +27,30 @@ class DisciplinaCTRL
         return $this->model->CadastrarDisciplinaMODEL($vo);
 
     }
+
+    public function AlterarDisciplinaCTRL(DisciplinaVO $vo): int
+    {
+
+        if(trim($vo->getNomeDisciplina()) === '' || trim($vo->getDescricao()) === '' 
+        || !is_numeric($vo->getId()) || $vo->getId() <= 0)
+            return 0;
+        $vo->setErroTecnico(ALTERAR_DISCIPLINA);
+
+        return $this->model->AlterarDisciplinaMODEL($vo);
+
+        // Em $vo->getId() <= 0 ID válido começa em 1
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 

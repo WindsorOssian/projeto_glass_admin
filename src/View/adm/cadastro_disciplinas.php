@@ -42,58 +42,7 @@ $tituloPagina = 'Cadastro Disciplinas';
 
             <div class="settings-grid">
                 <!-- Settings Navigation -->
-                <div class="glass-card settings-nav-card">
-                    <ul class="settings-nav">
-                        <li class="settings-nav-item">
-                            <a href="#" class="settings-nav-link active" data-tab="profile">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                    <circle cx="12" cy="7" r="4" />
-                                </svg>
-                                Cadastro de disciplinas
-                            </a>
-                        </li>
-                        <li class="settings-nav-item">
-                            <a href="#" class="settings-nav-link" data-tab="security">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                                </svg>
-                                Questões
-                            </a>
-                        </li>
-                        <li class="settings-nav-item">
-                            <a href="#" class="settings-nav-link" data-tab="notifications">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                                </svg>
-                                ...
-                            </a>
-                        </li>
-                        <li class="settings-nav-item">
-                            <a href="#" class="settings-nav-link" data-tab="appearance">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="4" />
-                                    <path d="M12 2v2" />
-                                    <path d="M12 20v2" />
-                                    <path d="M4.93 4.93l1.41 1.41" />
-                                    <path d="M17.66 17.66l1.41 1.41" />
-                                </svg>
-                                ...
-                            </a>
-                        </li>
-                        <li class="settings-nav-item">
-                            <a href="#" class="settings-nav-link" data-tab="billing">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="1" y="4" width="22" height="16" rx="2" />
-                                    <line x1="1" y1="10" x2="23" y2="10" />
-                                </svg>
-                                ...
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <?php include_once PATH . 'Template/_includes/mini_menu_adm.php'; ?>
 
                 <!-- Settings Content -->
                 <div class="glass-card">
@@ -147,7 +96,7 @@ $tituloPagina = 'Cadastro Disciplinas';
                                         <span class="toggle-slider"></span>
                                     </label> -->
 
-                                        <input type="hidden" name="status" value="0">
+                                        <input type="hidden" name="status_disciplina" value="0">
                                         <label class="toggle-switch">
                                             <input type="checkbox" id="status_disciplina" name="status_disciplina" value="1" checked>
                                             <span class="toggle-slider obg"></span>

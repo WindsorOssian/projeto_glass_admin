@@ -163,11 +163,11 @@ class Util
     //     return $nome_tipo;
     // }
 
-    // public static function ChamarPagina($pag)
-    // {
-    //     header("location: $pag.php");
-    //     exit;
-    // }
+    public static function ChamarPagina($pag)
+    {
+        header("location: $pag.php");
+        exit;
+    }
 
 
     // public static function CriptografarSenhar($senha): string

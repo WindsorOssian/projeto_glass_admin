@@ -15,7 +15,17 @@ class DISCIPLINA_SQL
 
     }
 
+    public static function ALTERAR_DISCIPLINA(): string
+    {
 
+        $sql = 'UPDATE tb_disciplina
+                   SET nome_disciplina = ?,
+                       descricao = ?,
+                       status_disciplina = ?
+                 WHERE id = ?';
+        return $sql;
+
+    }
 
 
 
