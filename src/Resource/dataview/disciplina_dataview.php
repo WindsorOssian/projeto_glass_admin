@@ -7,10 +7,24 @@ use Src\VO\DisciplinaVO;
 
 $ctrl = new DisciplinaCTRL();
 
+// Paga paginação
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-/* =========================
-   CADASTRAR
-========================= */
+$result = $ctrl->ConsultarDisciplinaPaginadoCTRL($page);
+
+$disciplinas = $result['dados'];
+$total       = $result['total'];
+$limit       = $result['limit'];
+$currentPage = $result['page'];
+
+$totalPages = ceil($total / $limit);
+
+
+// $disciplinas = $ctrl->ConsultarDisciplinaCTRL();  // Essa variavel $disciplinas guardou as consultas
+
+// /* =========================
+//    CADASTRAR
+// ========================= */
 if(isset($_POST['btn_salvar'])){
 
     $vo = new DisciplinaVO();
@@ -28,9 +42,9 @@ if(isset($_POST['btn_salvar'])){
 
 }
 
-/* =========================
-   ALTERAR
-========================= */
+// /* =========================
+//    ALTERAR
+// ========================= */
 
 else if(isset($_POST['btn_alterar'])){
 
@@ -51,8 +65,9 @@ else if(isset($_POST['btn_alterar'])){
 }
 
 
-
-
+// /* =========================
+//    CONSULTAR VAI CARREGAR TODAS AS MATÉRIAS
+// ========================= */
 
 
 

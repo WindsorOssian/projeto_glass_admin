@@ -474,13 +474,57 @@
 
 
 
+/* Paga paginação */
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #1f2933;
+    color: white;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background: linear-gradient(
+        135deg,
+        rgba(14, 165, 233, 0.25),
+        rgba(3, 105, 161, 0.25)
+    );
+    font-weight: bold;
+}
 
 
 
 
+/* =================================================
+   GLASS CARD CARD - SEM MOVIMENTO (PERFORMANCE)
+================================================= */
 
+.glass-card-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+    position: relative;
+    overflow: hidden;
 
+    /* 🔥 REMOVIDO MOVIMENTO */
+    transition: background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
 
+    transform: none !important;
+    transform-style: flat;
+    perspective: none;
+}
 
 
 

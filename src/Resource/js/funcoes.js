@@ -4,7 +4,7 @@ function BASE_URL_DATAVIEW(dataview) { // Função para retornar o caminho, igua
 }
 
 // function BASE_PATH() {
-//     return "http://localhost/ControleOs/src/View/adm/";
+//     return "http://localhost/projeto_glass_admin/src/View/";
 
 // }
 
@@ -52,3 +52,4 @@ function Load() {
 function RemoverLoad() {
     $(".loader").removeClass("is-active");
 }
+
