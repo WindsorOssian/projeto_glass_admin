@@ -78,6 +78,7 @@ $tituloPagina = 'Consultar Disciplinas';
                                                 <th>Disciplina</th>
                                                 <th>Status da disciplina</th>
                                                 <th>Alterar</th>
+                                                <th>Excluir</th>
 
                                             </tr>
                                         </thead>
@@ -91,11 +92,17 @@ $tituloPagina = 'Consultar Disciplinas';
                                                     </td>
 
                                                     <td><span class="status-badge <?= $d['status_disciplina'] ? 'completed' : 'processing' ?>"><?= $d['status_disciplina'] ? 'Ativo' : 'Inativo' ?></span></td>
-                                                    <!-- <td><a href="./alterar_disciplinas.php" class="status-badge pending">Alterar</td> -->
+
                                                     <td>
-                                                        <button class="status-badge pending"
+                                                        <button type="button" class="status-badge pending"
                                                             onclick="IrParaAlterar(<?= $d['id']; ?>)">
                                                             Alterar
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="status-badge danger"
+                                                            onclick='AbrirModalExcluir(<?= $d["id"]; ?>, <?= json_encode($d["nome_disciplina"]); ?>)'>
+                                                            Excluir
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -119,15 +126,20 @@ $tituloPagina = 'Consultar Disciplinas';
 
         </main>
     </div>
-
-
+    <!-- Modal de exclusão -->
+    <?php include_once PATH . 'View/adm/modais/modal-excluir.php'; ?>
     <!-- Footer -->
     <?php include_once PATH . 'Template/_includes/_footer.php'; ?>
     <!-- Scripts -->
     <?php include_once PATH . 'Template/_includes/_scripts.php'; ?>
-
+    <!-- Script com funções da página alterar e excluir-->
     <script src="../../Resource/ajax/disciplina_ajax.js"></script>
-    <!-- TemplateMo 607 Glass Admin -->
+    <!-- <div class="loader" id="loader">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <span>Carregando...</span>
+        </div>
+    </div> -->
 </body>
 
 </html>

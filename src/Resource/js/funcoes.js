@@ -45,11 +45,48 @@ function NotificarCampos(formID) {
 
 }
 
+// function Load() {
+//     $(".loader").addClass("is-active");
+// }
+
+// function RemoverLoad() {
+//     $(".loader").removeClass("is-active");
+// }
+
+let tempoMinimo = 800; // pode aumentar pra 800~1200 se quiser mais suave
+let inicioLoad = 0;
+
 function Load() {
-    $(".loader").addClass("is-active");
+    inicioLoad = Date.now();
+    $("#loader").addClass("is-active");
 }
 
 function RemoverLoad() {
-    $(".loader").removeClass("is-active");
+    let tempoAtual = Date.now();
+    let tempoPassado = tempoAtual - inicioLoad;
+
+    let restante = tempoMinimo - tempoPassado;
+
+    setTimeout(() => {
+        $("#loader").removeClass("is-active");
+    }, restante > 0 ? restante : 0);
 }
 
+function AbrirModalExcluir(id, nome) {
+    $("#id_excluir").val(id);
+    $("#nome_excluir").text(nome);
+
+    $("#modal-excluir").addClass("is-active");
+}
+
+function FecharModal(id) {
+    $("#" + id).removeClass("is-active");
+}
+
+// function IrParaAlterar(id) {
+//     window.location.href = "cadastro_perguntas.php?id=" + id;
+// }
+
+// function IrParaAlterarConteudo(id) {
+//     window.location.href = "cadastro_conteudo.php?id=" + id;
+// }

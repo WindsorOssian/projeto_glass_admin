@@ -1,0 +1,173 @@
+<?php
+
+// DIR informa aonde você está e quantos níveis você quer voltar
+include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+include_once dirname(__DIR__, 2) . '/Resource/dataview/questao_dataview.php'; // Se precisar testar comente essa linha
+include_once dirname(__DIR__, 3) . '/src/Template/_includes/icon/icones.php';
+
+use Src\Public\Util;
+use Src\Controller\QuestaoCTRL;
+
+$ctrl = new QuestaoCTRL();
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+
+$result = $ctrl->ConsultarQuestaoPaginadoCTRL($page);
+
+$questoes    = $result['dados'];
+$total       = $result['total'];
+$limit       = $result['limit'];
+$currentPage = $result['page'];
+
+$totalPages = ceil($total / $limit);
+
+$tituloPagina = 'Consultar Questões';
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <?php include_once PATH . 'Template/_includes/_head.php'; ?>
+
+</head>
+
+<body>
+
+    <!-- Animated Background se tirar o fundo fica todo preto -->
+    <?php include_once PATH . 'Template/_includes/_animacao_fundo.php'; ?>
+
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <?php include_once PATH . 'Template/_includes/_menu_adm.php'; ?>
+
+
+        <main class="main-content">
+            <!-- Main Content -->
+            <?php include_once PATH . 'Template/_includes/_topo.php'; ?>
+
+            <!-- Mobile Menu Toggle -->
+            <?php include_once PATH . 'Template/_includes/_botao_menu.php'; ?>
+
+            <!-- Formulário -->
+
+            <div class="settings-grid">
+                <!-- Settings Navigation -->
+                <?php include_once PATH . 'Template/_includes/mini_menu_adm.php'; ?>
+
+                <!-- Settings Content -->
+                <div class="glass-card-card">
+                    <!-- Profile Tab -->
+                    <div class="settings-tab-content active" id="tab-profile">
+                        <div class="profile-header">
+                            <div class="profile-avatar-large">
+                                ID
+                                <div class="profile-avatar-edit">
+                                    <?php echo get_icon('editarimagem'); ?>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Digite aqui as questões</h2>
+                                <!-- <p>Aqui você pode consultar todas as suas disciplinas</p> -->
+                                <div class="form-group-settings">
+                                    <label>Nome da questão/disciplina</label>
+                                    <input type="text" id="nome_disciplina" name="nome_disciplina" placeholder="Ex: Matemática...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <form method="post" id="formCAD" action="">
+
+                            <!-- <h3 class="settings-section-title">Profile Information</h3> -->
+
+                            <div class="settings-section">
+                                <h3 class="settings-section-title">Consultar Questões</h3>
+                                <div class="table-wrapper" style="margin: 0;">
+                                    <table class="data-table" style="min-width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Questão</th>
+                                                <th>Conteúdo</th>
+                                                <th>Nível</th>
+                                                <th>Alterar</th>
+                                                <th>Excluir</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <?php foreach ($questoes as $q) { ?>
+
+                                                <tr>
+
+                                                    <td><?= $q['enunciado'] ?></td>
+
+                                                    <td><?= $q['conteudo'] ?></td>
+
+                                                    <td>
+                                                        <span class="status-badge <?= $q['nivel'] == 'facil' ? 'completed' : ($q['nivel'] == 'medio' ? 'pending' : 'danger') ?>">
+                                                            <?= ucfirst($q['nivel']) ?>
+                                                        </span>
+                                                    </td>
+
+                                                    <td>
+
+                                                        <button type="button"
+                                                            class="status-badge pending"
+                                                            onclick="IrParaAlterarQuestao(<?= $q['id'] ?>)">
+
+                                                            Alterar
+                                                        </button>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <button type="button"
+                                                            class="status-badge danger"
+                                                            onclick='AbrirModalExcluir(<?= $q["id"] ?>, <?= json_encode($q["enunciado"]) ?>)'>
+
+                                                            Excluir
+                                                        </button>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--  PAGINAÇÃO FICA AQUI  -->
+                                <?php include_once PATH . 'Template/_includes/_paginacao.php'; ?>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <!-- Modal de exclusão -->
+    <?php include_once PATH . 'View/adm/modais/modal-excluir.php'; ?>
+    <!-- Footer -->
+    <?php include_once PATH . 'Template/_includes/_footer.php'; ?>
+    <!-- Scripts -->
+    <?php include_once PATH . 'Template/_includes/_scripts.php'; ?>
+    <!-- Script com funções da página alterar e excluir-->
+    <script src="../../Resource/ajax/questao_ajax.js"></script>
+    <!-- <div class="loader" id="loader">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <span>Carregando...</span>
+        </div>
+    </div> -->
+</body>
+
+</html>

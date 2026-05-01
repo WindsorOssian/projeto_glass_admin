@@ -49,14 +49,19 @@ class DISCIPLINA_SQL
                 FROM tb_disciplina';
     }
 
+    // Para detalhar a disciplina e alterar no cadastro
+    public static function DETALHAR_DISCIPLINA(): string
+    {
+        return 'SELECT id, nome_disciplina, descricao, status_disciplina
+              FROM tb_disciplina
+             WHERE id = ?';
+    }
 
-
-
-
-
-
-
-
-
+    public static function EXCLUIR_DISCIPLINA(): string
+    {
+        $sql = 'DELETE FROM tb_disciplina
+                      WHERE id = ?';
+        return $sql;
+    }
 
 }

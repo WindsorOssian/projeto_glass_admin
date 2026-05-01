@@ -58,19 +58,29 @@ else if(isset($_POST['btn_alterar'])){
 
     $ret = $ctrl->AlterarDisciplinaCTRL($vo);
 
-    if($_POST['btn_salvar'] == 'ajx')
+    if($_POST['btn_alterar'] == 'ajx')
         echo $ret;
     exit;
 
 }
 
+// =========================
+//    EXCLUIR
+// =========================
 
-// /* =========================
-//    CONSULTAR VAI CARREGAR TODAS AS MATÉRIAS
-// ========================= */
+else if(isset($_POST['btn_excluir'])){
 
+    $vo = new DisciplinaVO();
 
+    $vo->setId((int)$_POST['id_disciplina']);
 
+    $ret = $ctrl->ExcluirDisciplinaCTRL($vo);
+
+    if($_POST['btn_excluir'] == 'ajx')
+        echo $ret;
+    exit;
+
+}
 
 
 

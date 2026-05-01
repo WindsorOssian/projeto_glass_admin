@@ -1,5 +1,5 @@
 function GravarDisciplina(formID) {
-    
+
     if (NotificarCampos(formID)) {
 
         let nome = $("#nome_disciplina").val();
@@ -37,7 +37,7 @@ function GravarDisciplina(formID) {
 }
 
 function AlterarDisciplina(formID) {
-    
+
     if (NotificarCampos(formID)) {
 
         let id = $("#id_disciplina").val(); // Precisa ter o id hidden para alterar
@@ -59,11 +59,14 @@ function AlterarDisciplina(formID) {
                 status_disciplina: status
             },
             success: function (ret) {
-                MostrarMensagem(ret); // Padronização do projeto, facíl manutenção
-                // ConsultarDisciplina();     // Chama a função para atualizar quando cadastrar
+                MostrarMensagem(ret);
+
                 LimparNotificacoes(formID);
-                // Depois eu faço um sair da pagina aqui em funcoes.js
-                
+
+                // 🔥 REDIRECIONAMENTO
+                setTimeout(function () {
+                    window.location.href = "consultar_disciplinas.php";
+                }, 1000); // pequeno delay pra mostrar a mensagem
             },
             complete: function () {
                 RemoverLoad();
@@ -74,4 +77,38 @@ function AlterarDisciplina(formID) {
     }
 
     return false;
+}
+
+function IrParaAlterar(id) {
+    window.location.href = "cadastro_disciplinas.php?id=" + id;
+}
+
+function ConfirmarExclusao() {
+
+    let id = $("#id_excluir").val();
+
+    $.ajax({
+        beforeSend: function () {
+            Load();
+        },
+        type: 'post',
+        url: BASE_URL_DATAVIEW('disciplina_dataview'),
+        data: {
+            id_disciplina: id,
+            btn_excluir: 'ajx'
+        },
+        success: function (ret) {
+            MostrarMensagem(ret);
+
+            $("button[onclick*='(" + id + ")']").closest("tr").fadeOut();
+
+            // 🔥 fecha com delay leve (melhor UX)
+            setTimeout(function () {
+                FecharModal("modal-excluir");
+            }, 300);
+        },
+        complete: function () {
+            RemoverLoad();
+        }
+    });
 }

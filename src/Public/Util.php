@@ -7,11 +7,11 @@ namespace Src\Public;
 class Util
 {
 
-    // public static function IniciarSessao(): void
-    // {
-    //     if (!isset($_SESSION))
-    //         session_start();
-    // }
+    public static function IniciarSessao(): void
+    {
+        if (!isset($_SESSION))
+            session_start();
+    }
 
     // public static function CriarSessao(int $id, string $nome): void
     // {
@@ -40,6 +40,17 @@ class Util
     //     self::IniciarSessao();
     //     return $_SESSION['cod'];
     // } // No caso sem login return 1; Foi colocado para testar o erro, ele simuta um código logado
+
+    public static function CodigoLogado(): int
+    {
+        self::IniciarSessao();
+
+        if (!isset($_SESSION['cod'])) {
+            return 1; // 👈 SIMULA usuário logado
+        }
+
+        return (int)$_SESSION['cod'];
+    }
 
     // public static function NomeLogado(): string
     // {
@@ -103,7 +114,7 @@ class Util
     {
 
         $especiais = array(".", ",", ";", "!", "@", "#", "%", "¨", "*", "(", ")", "+", "-", "=", "§", "$", "|", "\\", ":", "/", "<", ">", "?", "{", "}", "[", "]", "&", "'", '"', "´", "`", "?", "“", "”", '$', "'", "'", '  ');
-        
+
         // $especiais = array(
         //     "`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", 
         //     "=", "+", "[", "]", "{", "}", "\\", "|", ";", ":", "'", "\"", "‘", "’", 
@@ -132,7 +143,7 @@ class Util
     //         case SITUACAO_ATIVO_E_ALOCADO:
     //             $situacao = '<strong style="color: #dbd307ff;">ATIVO/ALOCADO</strong>';
     //             break;
-                
+
     //         case SITUACAO_INATIVAVEL:
     //             $situacao = '<strong style="color: #2da8ec;">INATIVÁVEL</strong>';
     //             break;

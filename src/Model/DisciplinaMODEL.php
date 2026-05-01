@@ -85,4 +85,31 @@ class DisciplinaMODEL extends Conexao
         $sql->execute();
         return (int) $sql->fetch()['total'];
     }
+
+    // Para detalhar a disciplina e alterar no cadastro
+    public function DetalharDisciplinaMODEL(int $id): array
+    {
+        $sql = $this->conexao->prepare(DISCIPLINA_SQL::DETALHAR_DISCIPLINA());
+        $sql->bindValue(1, $id);
+        $sql->execute();
+
+        return $sql->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function ExcluirDisciplinaMODEL(int $id): int
+{
+    $sql = $this->conexao->prepare(DISCIPLINA_SQL::EXCLUIR_DISCIPLINA());
+    $sql->bindValue(1, $id);
+
+    try {
+        $sql->execute();
+        return 1;
+    } catch (Exception $ex) {
+        // ❌ REMOVA isso (dá erro)
+        // $vo->setErroTecnico(...)
+
+        parent::GravarErroLog($ex->getMessage());
+        return -1;
+    }
+}
 }

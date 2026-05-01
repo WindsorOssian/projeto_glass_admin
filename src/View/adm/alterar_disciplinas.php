@@ -10,10 +10,10 @@ include_once dirname(__DIR__, 3) . '/src/Template/_includes/icon/icones.php';
 $tituloPagina = 'Alterar Disciplinas';
 
 // Se não existir dados ou se estiver vazio, redireciona para consultar usuário
-if (!isset($dados) || empty($dados)) {
-    Util::ChamarPagina('consultar_disciplina');
-    exit;
-}
+// if (!isset($dados) || empty($dados)) {
+//     Util::ChamarPagina('consultar_disciplina');
+//     exit;
+// }
 
 ?>
 

@@ -2,8 +2,35 @@
 
 // DIR informa aonde você está e quantos níveis você quer voltar
 include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+include_once dirname(__DIR__, 3) . '/src/Template/_includes/icon/icones.php';
 
 $tituloPagina = 'Cadastro Disciplinas';
+
+// Se não existir dados ou se estiver vazio, redireciona para consultar usuário
+// if (!isset($dados) || empty($dados)) {
+//     Util::ChamarPagina('consultar_disciplina');
+//     exit;
+use Src\Controller\DisciplinaCTRL;
+
+$ctrl = new DisciplinaCTRL();
+
+$dados = [];
+
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $dados = $ctrl->DetalharDisciplinaCTRL((int)$_GET['id']);
+
+    // 🔥 ALTERA O TÍTULO
+    if (!empty($dados)) {
+        $tituloPagina = 'Alterar Disciplina';
+    }
+}
+
+$statusChecked = 'checked';
+
+if (isset($dados['status_disciplina']) && $dados['status_disciplina'] == 0) {
+    $statusChecked = '';
+}
+
 
 ?>
 
@@ -41,33 +68,38 @@ $tituloPagina = 'Cadastro Disciplinas';
                 <?php include_once PATH . 'Template/_includes/mini_menu_adm.php'; ?>
 
                 <!-- Settings Content -->
-                <div class="glass-card">
+                <div class="glass-card-card">
                     <!-- Profile Tab -->
                     <div class="settings-tab-content active" id="tab-profile">
                         <div class="profile-header">
                             <div class="profile-avatar-large">
                                 ID
                                 <div class="profile-avatar-edit">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                                    </svg>
+                                    <?php echo get_icon('editarimagem'); ?>
                                 </div>
                             </div>
                             <div class="profile-info">
-                                <h2>Disciplinas</h2>
-                                <p>Aqui você pode cadastrar todas as suas disciplinas</p>
+                                <h2><?= !empty($dados) ? 'Alterar Disciplina' : 'Cadastro de Disciplinas' ?></h2>
+                                <p><?= !empty($dados)
+                                        ? 'Aqui você pode alterar os dados da disciplina'
+                                        : 'Aqui você pode cadastrar todas as suas disciplinas' ?>
+                                </p>
                             </div>
                         </div>
 
                         <form method="post" id="formCAD" action="cadastro_disciplinas.php">
+
+                            <!-- Serve para identificar o ID da disciplina e polular os campos-->
+                            <input type="hidden" id="id_disciplina" name="id_disciplina"
+                                value="<?= $dados['id'] ?? '' ?>">
 
                             <div class="settings-section">
                                 <!-- <h3 class="settings-section-title">Profile Information</h3> -->
                                 <div class="form-grid">
                                     <div class="form-group-settings">
                                         <label>Nome da disciplina</label>
-                                        <input type="text" id="nome_disciplina" name="nome_disciplina" placeholder="Ex: Matemática...">
+                                        <input type="text" id="nome_disciplina" name="nome_disciplina"
+                                            value="<?= $dados['nome_disciplina'] ?? '' ?>">
                                     </div>
 
                                     <!-- <div class="settings-row">
@@ -94,7 +126,7 @@ $tituloPagina = 'Cadastro Disciplinas';
 
                                         <input type="hidden" name="status_disciplina" value="0">
                                         <label class="toggle-switch">
-                                            <input type="checkbox" id="status_disciplina" name="status_disciplina" value="1" checked>
+                                            <input type="checkbox" id="status_disciplina" name="status_disciplina" value="1" <?= $statusChecked ?>>
                                             <span class="toggle-slider obg"></span>
                                         </label>
 
@@ -102,13 +134,25 @@ $tituloPagina = 'Cadastro Disciplinas';
 
                                     <div class="form-group-settings full-width">
                                         <label>Descrição</label>
-                                        <textarea id="descricao_disciplina" name="descricao_disciplina" placeholder="Descreva a sua disciplina aqui..."></textarea>
+                                        <textarea id="descricao_disciplina" name="descricao_disciplina"><?= $dados['descricao'] ?? '' ?></textarea>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="btn-group">
-                                <button type="button" onclick="GravarDisciplina('formCAD')" id="btn_salvar" name="btn_salvar" class="btn btn-primary" style="width: auto;">Salvar</button>
+                                <?php if (!empty($dados)) { ?>
+                                    <button type="button"
+                                        onclick="AlterarDisciplina('formCAD')"
+                                        class="btn btn-primary">
+                                        Alterar
+                                    </button>
+                                <?php } else { ?>
+                                    <button type="button"
+                                        onclick="GravarDisciplina('formCAD')"
+                                        class="btn btn-primary">
+                                        Salvar
+                                    </button>
+                                <?php } ?>
                                 <button name="btn_cancelar" class="btn btn-secondary" style="width: auto;">Cancel</button>
                             </div>
                         </form>

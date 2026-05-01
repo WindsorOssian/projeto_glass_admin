@@ -9,3 +9,10 @@
         </a>
     </p>
 </footer>
+<!-- LOADER GLOBAL -->
+<div class="loader" id="loader">
+    <div class="loader-box">
+        <div class="loader-spinner"></div>
+        <span>Carregando...</span>
+    </div>
+</div>

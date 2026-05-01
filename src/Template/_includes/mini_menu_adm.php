@@ -1,55 +1,89 @@
 <?php
 $paginaAtual = basename($_SERVER['PHP_SELF']);
 ?>
-<div class="glass-card settings-nav-card">
+
+<div class="glass-card-card menu-fixo">
     <ul class="settings-nav">
+
+        <!-- DISCIPLINA -->
         <li class="settings-nav-item">
-            <a href="../../View/adm/cadastro_disciplinas.php" class="settings-nav-link <?= $paginaAtual == 'cadastro_disciplinas.php' ? 'active' : '' ?>">
+            <a href="../../View/adm/cadastro_disciplinas.php"
+               class="settings-nav-link <?= $paginaAtual == 'cadastro_disciplinas.php' ? 'active' : '' ?>">
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-                Cadastro de disciplinas
+
+                Cadastro de Disciplinas
             </a>
         </li>
+
         <li class="settings-nav-item">
-            <a href="../../View/adm/alterar_disciplinas.php" class="settings-nav-link <?= $paginaAtual == 'alterar_disciplinas.php' ? 'active' : '' ?>">
+            <a href="../../View/adm/consultar_disciplinas.php"
+               class="settings-nav-link <?= $paginaAtual == 'consultar_disciplinas.php' ? 'active' : '' ?>">
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a7.97 7.97 0 0 0 .1-6"/>
                 </svg>
-                Alterar Disciplinas
+
+                Consultar Disciplinas
             </a>
         </li>
+
+        <!-- CONTEÚDO -->
         <li class="settings-nav-item">
-            <a href="#" class="settings-nav-link" data-tab="notifications">
+            <a href="../../View/adm/cadastro_conteudo.php"
+               class="settings-nav-link <?= $paginaAtual == 'cadastro_conteudo.php' ? 'active' : '' ?>">
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>
                 </svg>
-                Questões
+
+                Cadastro de Conteúdo
             </a>
         </li>
+
         <li class="settings-nav-item">
-            <a href="#" class="settings-nav-link" data-tab="appearance">
+            <a href="../../View/adm/consultar_conteudo.php"
+               class="settings-nav-link <?= $paginaAtual == 'consultar_conteudo.php' ? 'active' : '' ?>">
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2" />
-                    <path d="M12 20v2" />
-                    <path d="M4.93 4.93l1.41 1.41" />
-                    <path d="M17.66 17.66l1.41 1.41" />
+                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                    <path d="M7 8h10M7 12h6"/>
                 </svg>
-                ...
+
+                Consultar Conteúdo
             </a>
         </li>
+
+        <!-- QUESTÕES -->
         <li class="settings-nav-item">
-            <a href="#" class="settings-nav-link" data-tab="billing">
+            <a href="../../View/adm/cadastro_perguntas.php"
+               class="settings-nav-link <?= $paginaAtual == 'cadastro_perguntas.php' ? 'active' : '' ?>">
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="4" width="22" height="16" rx="2" />
-                    <line x1="1" y1="10" x2="23" y2="10" />
+                    <path d="M9 18h6"/>
+                    <path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12v2h8v-2a7 7 0 0 0-4-12Z"/>
                 </svg>
-                ...
+
+                Cadastro de Questões
             </a>
         </li>
+
+        <li class="settings-nav-item">
+            <a href="../../View/adm/consultar_questoes.php"
+               class="settings-nav-link <?= $paginaAtual == 'consultar_questoes.php' ? 'active' : '' ?>">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h10"/>
+                </svg>
+
+                Consultar Questões
+            </a>
+        </li>
+
     </ul>
 </div>

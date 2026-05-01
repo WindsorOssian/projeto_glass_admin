@@ -49,6 +49,17 @@ class DisciplinaCTRL
         return $this->model->ConsultarDisciplinaMODEL();
     }
 
+    // Para filtrar por disciplina ativa, para o cadastro de questões
+    public function ConsultarDisciplinaAtivaCTRL(): array
+    {
+        $dados = $this->model->ConsultarDisciplinaMODEL();
+
+        return array_values(array_filter($dados, function ($item) {
+
+            return $item['status_disciplina'] == 1;
+        }));
+    }
+
     // Paginação
     public function ConsultarDisciplinaPaginadoCTRL(int $page = 1): array
     {
@@ -68,5 +79,25 @@ class DisciplinaCTRL
             'limit' => $limit,
             'page'  => $page
         ];
+    }
+
+    // Para detalhar a disciplina e alterar no cadastro
+    public function DetalharDisciplinaCTRL(int $id): array
+    {
+        if ($id <= 0)
+            return [];
+
+        return $this->model->DetalharDisciplinaMODEL($id);
+    }
+
+    public function ExcluirDisciplinaCTRL(DisciplinaVO $vo): int
+    {
+        if (empty($vo->getId()))
+            return 0;
+
+        $vo->setCodLogado(Util::CodigoLogado());
+        $vo->setFuncaoErro(EXCLUIR_DISCIPLINA);
+
+        return $this->model->ExcluirDisciplinaMODEL($vo->getId());
     }
 }
